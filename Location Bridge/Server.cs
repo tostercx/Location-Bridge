@@ -287,14 +287,18 @@ namespace Location_Bridge
                 lat, lon, time);
             var rmc = String.Format("GPRMC,{0},A,{1},{2},{3},0,{4},0,0,A",
                 time, lat, lon, speed, date);
+            var gsa = String.Format("GPGSA,A,3,01,02,03,04,05,06,07,08,09,10,11,12,{0:0.0},{1:0.0},{2:0.0}",
+                location.ha, location.ha, location.va);
 
             gga = "$" + gga + NmeaChecksum(gga);
             gll = "$" + gll + NmeaChecksum(gll);
             rmc = "$" + rmc + NmeaChecksum(rmc);
+            gsa = "$" + gsa + NmeaChecksum(gsa);
 
-            return gga + "\n\r"
-                + gll + "\n\r"
-                + rmc + "\n\r";
+            return gga + "\r\n"
+                + gll + "\r\n"
+                + rmc + "\r\n"
+                + gsa + "\r\n";
         }
 
         private void UpdateCount()
