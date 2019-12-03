@@ -242,7 +242,7 @@ namespace Location_Bridge
                     direct = "S";
                 else
                     direct = "N";
-                format = "{0:D2}{1,7:F4},{2}";
+                format = "{0:D2}{1:00.0000},{2}";
             }
             else
             {
@@ -250,7 +250,7 @@ namespace Location_Bridge
                     direct = "W";
                 else
                     direct = "E";
-                format = "{0:D3}{1,7:F4},{2}";
+                format = "{0:D3}{1:00.0000},{2}";
             }
 
             coord = Math.Abs(coord);
