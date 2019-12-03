@@ -242,7 +242,7 @@ namespace Location_Bridge
                 MenuState(false);
 
                 ui.LogAdd(Properties.Resources.Starting);
-                watcher = new GeoCoordinateWatcher();
+                watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
                 watcher.PositionChanged +=
                     new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(OnGpsPos);
                 watcher.StatusChanged +=
